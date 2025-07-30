@@ -1,0 +1,53 @@
+﻿<Application x:Class="CarRental.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CarRental"
+             StartupUri="MainWindow.xaml"
+             xmlns:viewModel="clr-namespace:CarRental.MVVM.ViewModel"
+             xmlns:view="clr-namespace:CarRental.MVVM.View">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/FilterButtonStyle.xaml"/>
+                <ResourceDictionary Source="Theme/TariffIDButton.xaml"/>
+                <ResourceDictionary Source="Theme/NavButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel }">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CarManageViewModel }">
+                <view:CarManageView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:BookingsViewModel }">
+                <view:BookingsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:StatisticViewModel }">
+                <view:StatisticView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:LogViewModel }">
+                <view:LogView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:RegViewModel }">
+                <view:RegView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AddCarViewModel }">
+                <view:AddCarView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:EditCarViewModel }">
+                <view:EditCarView/>
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

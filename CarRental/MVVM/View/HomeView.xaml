@@ -1,0 +1,230 @@
+﻿<UserControl x:Class="CarRental.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarRental.MVVM.View" xmlns:viewmodel="clr-namespace:CarRental.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:HomeViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Строка фильтрации -->
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <!-- Метка и поле ввода для минимальной цены -->
+            <StackPanel Margin="0,0,20,0">
+                <Label Margin="10,0,0,0" Content="Min Price" Foreground="White"/>
+                <TextBox x:Name="TextBoxMinPrice" Text="{Binding MinPriceFilter, Mode=TwoWay}" FontWeight="UltraLight" Width="85" TextAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="#252A37"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border BorderBrush="Transparent" BorderThickness="0"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+            <!-- Метка и поле ввода для максимальной цены -->
+            <StackPanel Margin="0,0,20,0">
+                <Label Margin="10,0,0,0" Content="Max Price" Foreground="White"/>
+                <TextBox x:Name="TextBoxMaxPrice" Text="{Binding MaxPriceFilter, Mode=TwoWay}" FontWeight="UltraLight" Width="85" TextAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="#252A37"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border BorderBrush="Transparent" BorderThickness="0"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+            <!-- Метка и комбо бокс для выбора типа кузова -->
+            <StackPanel Margin="0,0,20,0">
+                <Label Margin="15,0,0,0" Content="Body Type" Foreground="White"/>
+                <TextBox Margin="0,0,15,0" x:Name="TextBoxBodyType" Text="{Binding BodyTypeFilter, Mode=TwoWay}" FontWeight="UltraLight" Width="100" TextAlignment="Center"
+                         GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="#252A37"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border BorderBrush="Transparent" BorderThickness="0"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+
+            <!-- Метка и поле ввода для года автомобиля -->
+            <StackPanel Margin="-20,0,0,0">
+                <Label Margin="25,0,0,0" Content="Year" Foreground="White"/>
+                <TextBox x:Name="TextBoxYear" Text="{Binding YearFilter, Mode=TwoWay}" FontWeight="UltraLight" Width="85" TextAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="#252A37"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10">
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Validation.ErrorTemplate">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border BorderBrush="Transparent" BorderThickness="0"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+
+            <Button Height="25" Width="100" x:Name="ClearFiltersButton" Content="Clear filter" Command="{Binding ClearFiltersCommand}" 
+        Background="#314FF6" Foreground="White" FontSize="14" Padding="10" Margin="20,24,0,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+
+        <!-- Отображение карточек с машинами -->
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+            <ItemsControl ItemsSource="{Binding Cars}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="300" Height="Auto" Background="#252A37" CornerRadius="15" Margin="5">
+                            <StackPanel Orientation="Vertical" Margin="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="5,0,0,0" Text="{Binding Brand}" FontSize="20" FontWeight="Bold" Foreground="White"/>
+                                    <Button Content="{Binding Price}" ContentStringFormat="{}{0}$" Background="#0A0F1D" Foreground="White" FontSize="16" Grid.Column="1" HorizontalAlignment="Right" Padding="15,5" Margin="0,0,10,0">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Width" Value="80"/>
+                                                <!-- Фиксированная ширина кнопки -->
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal" Margin="5">
+                                    <TextBlock Text="Model: " FontSize="14" Foreground="#8C8BA7"/>
+                                    <TextBlock Margin="0,0,5,0" Text="{Binding Model}" FontSize="14" Foreground="#FFFFFF"/>
+                                    <TextBlock Text="Body: " FontSize="14" Foreground="#8C8BA7"/>
+                                    <TextBlock Margin="0,0,5,0" Text="{Binding BodyType}" FontSize="14" Foreground="#FFFFFF"/>
+                                    <TextBlock Text="Year: " FontSize="14" Foreground="#8C8BA7"/>
+                                    <TextBlock Margin="0,0,5,0" Text="{Binding Year}" FontSize="14" Foreground="#FFFFFF"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Description}" FontSize="14" Foreground="#FFFFFF" TextWrapping="Wrap" Margin="5"/>
+                                <Image Width="300" Source="{Binding ImagePath}" Margin="5"/>
+
+                                <Button Background="#314FF6" Foreground="White" FontSize="14" Padding="10" Width="100" Height="25" Content="Booking" Margin="20" Command="{Binding DataContext.BookingCarCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Width" Value="150"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </StackPanel>
+                            
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
